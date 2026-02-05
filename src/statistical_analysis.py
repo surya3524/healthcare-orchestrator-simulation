@@ -194,10 +194,14 @@ def plot_confidence_intervals(descriptive_stats):
     ax.set_xticklabels(scenarios)
     ax.grid(axis='y', linestyle='--', alpha=0.5)
     
+    # Set y-axis limit to provide space for labels
+    ax.set_ylim(0, max(means) * 1.15)
+    
     # Add value labels on bars
     for i, (mean, scenario) in enumerate(zip(means, scenarios)):
-        ax.text(i, mean + 0.5, f'{mean:.2f} days', 
-               ha='center', va='bottom', fontweight='bold')
+        ax.text(i, mean, f'{mean:.2f} days', 
+               ha='center', va='bottom', fontweight='bold', 
+               bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor='none', alpha=0.8))
     
     plt.tight_layout()
     plt.savefig('Fig3_Confidence_Intervals.png')
