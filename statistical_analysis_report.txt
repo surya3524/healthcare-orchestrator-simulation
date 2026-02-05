@@ -1,0 +1,80 @@
+================================================================================
+STATISTICAL ANALYSIS REPORT
+Healthcare Care-Path Orchestrator Simulation
+================================================================================
+
+1. DESCRIPTIVE STATISTICS
+--------------------------------------------------------------------------------
+Metric                         Legacy               Orchestrator        
+--------------------------------------------------------------------------------
+Sample Size (n)                1000                 1000                
+Mean (days)                    21.17                6.25                
+Median (days)                  21.17                6.24                
+Std Dev (days)                 0.07                 0.17                
+Min (days)                     20.92                5.79                
+Max (days)                     21.39                6.97                
+25th Percentile                21.12                6.14                
+75th Percentile                21.21                6.35                
+95% CI Lower                   21.16                6.24                
+95% CI Upper                   21.17                6.26                
+
+2. NORMALITY TESTS
+--------------------------------------------------------------------------------
+Legacy Workflow:
+  Shapiro-Wilk Test: W = 0.9960, p = 1.0404e-02
+  Distribution: Non-normal (α = 0.05)
+
+Orchestrator Workflow:
+  Shapiro-Wilk Test: W = 0.9841, p = 5.4328e-09
+  Distribution: Non-normal (α = 0.05)
+
+3. STATISTICAL SIGNIFICANCE TESTS
+--------------------------------------------------------------------------------
+Independent Samples T-Test:
+  t-statistic = 2565.4858
+  p-value = 0.0000e+00
+  Result: SIGNIFICANT (α = 0.05)
+
+Welch's T-Test (unequal variances):
+  p-value = 0.0000e+00
+
+Mann-Whitney U Test (non-parametric):
+  p-value = 0.0000e+00
+
+4. EFFECT SIZE ANALYSIS
+--------------------------------------------------------------------------------
+Cohen's d = 114.7320
+Interpretation: Large effect size
+  (|d| < 0.2: negligible, 0.2-0.5: small, 0.5-0.8: medium, >0.8: large)
+
+Hedges' g (corrected) = 114.6889
+
+5. CLINICAL SIGNIFICANCE
+--------------------------------------------------------------------------------
+Absolute Reduction: 14.91 days
+Relative Reduction: 70.5%
+
+Clinical Impact (per 1,000 patients):
+  Total patient-days saved: 14914
+  Equivalent patient-years: 40.9
+
+6. STAGE-LEVEL ANALYSIS
+--------------------------------------------------------------------------------
+             Stage  Legacy_Mean_Days  Legacy_Std  Orchestrator_Mean_Days  Orchestrator_Std  Absolute_Difference_Days  Percent_Reduction   Cohens_D  T_Statistic  P_Value Significant
+1_Radiology_Report          0.167020    0.020593                0.166154          0.021437                  0.000866           0.518559   0.041205     0.921377 0.356965          No
+         2_PCP_Ack          2.002951    0.041601                0.083473          0.008676                  1.919478          95.832511  63.878105  1428.357841 0.000000         Yes
+    3_Referral_Gen          3.000188    0.032795                0.002072          0.000409                  2.998117          99.930949 129.277353  2890.729489 0.000000         Yes
+         4_PA_Prep          3.999613    0.021396                0.004178          0.000411                  3.995435          99.895551 264.033429  5903.966957 0.000000         Yes
+    5_Payer_Review          4.999178    0.016532                4.999579          0.016349                 -0.000400          -0.008006  -0.024342    -0.544309 0.586290          No
+      6_Scheduling          6.998832    0.025185                0.998511          0.168547                  6.000321          85.733178  49.793518  1113.416903 0.000000         Yes
+
+7. INTERPRETATION FOR PUBLICATION
+--------------------------------------------------------------------------------
+The AI-driven orchestrator workflow demonstrated statistically significant
+reduction in care-path latency (t = 2565.49, p < 0.001).
+The effect size was large (Cohen's d = 114.73),
+with a 70.5% reduction in mean latency
+(14.91 days, 95% CI: [21.16, 21.17]
+vs [6.24, 6.26]).
+
+================================================================================
