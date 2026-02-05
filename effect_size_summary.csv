@@ -1,0 +1,9 @@
+Effect Measure,Value,Interpretation,Report Priority
+Percent Reduction,70.5%,Intuitive (70.5% faster),★★★★★ (PRIMARY)
+Absolute Days Saved,14.91 days,Clinical meaning (2+ weeks saved),★★★★★ (PRIMARY)
+Median Difference,14.93 days,Robust to outliers,★★★★☆ (SECONDARY)
+IQR Overlap,None (100% separation),Complete distribution separation,★★★☆☆ (SUPPORTIVE)
+Probability of Superiority,1.0000 (100.00%),~100% chance orchestrator is faster,★★★☆☆ (SUPPORTIVE)
+Cohen's d,114.73,Extremely large (reflects low SDs),★★☆☆☆ (WITH EXPLANATION)
+Glass's Delta,217.04,Very large improvement,★☆☆☆☆ (OPTIONAL)
+Rank-Biserial Correlation,-1.000,Large effect (non-parametric),★☆☆☆☆ (OPTIONAL)
