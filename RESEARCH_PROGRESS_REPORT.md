@@ -12,7 +12,7 @@
 
 This report summarizes the current status of the healthcare care-path orchestrator simulation study. The research quantifies the potential impact of AI-driven automation on ambulatory care coordination delays from radiology findings through specialist appointment scheduling.
 
-**Key Finding:** The orchestrator reduces care coordination time by 14.91 days (70.5% reduction, p < 0.001), demonstrating transformative clinical impact.
+**Key Finding:** The orchestrator reduces care coordination time by 14.91 days (70.5% reduction, p < 0.001), demonstrating substantial operational impact and potentially clinically meaningful improvements in time-to-specialty-care for time-sensitive conditions.
 
 **Publication Readiness:** 85-90% complete; analytical work finished, manuscript writing in progress.
 
@@ -75,10 +75,10 @@ See `LITERATURE_REFERENCES.md` for complete citations.
 - Percent reduction: **70.5%**
 - Absolute reduction: **14.91 days**
 - Median reduction: **14.93 days**
-- Probability of superiority: **100%** (complete distributional separation)
+- Probability of superiority: **≈1.00** (near-complete distributional separation in simulated outputs)
 - Cohen's d: 114.73 (reflects low simulation variance; see note below)
 
-> **Note on Cohen's d:** The extremely large standardized effect size (114.73) results from very low variance in the simulation (legacy SD = 0.07d, orchestrator SD = 0.17d) rather than measurement error. More intuitive measures include the 70.5% relative reduction and 14.91-day absolute reduction, both indicating transformative clinical impact.
+> **Note on Cohen's d:** The extremely large standardized effect size (114.73) results from very low variance in the simulation (legacy SD = 0.07d, orchestrator SD = 0.17d) rather than measurement error. More intuitive measures include the 70.5% relative reduction and 14.91-day absolute reduction, both indicating substantial operational impact.
 
 ### Clinical Impact
 
@@ -88,10 +88,10 @@ See `LITERATURE_REFERENCES.md` for complete citations.
 - Percent reduction: **70.5%**
 - Patients needed to save 1 year: **24.5 patients**
 
-**Clinical Significance Threshold:**
-- Improvement (14.91 days) exceeds "transformative" threshold (>14 days)
+**Operational Significance:**
+- A two-week reduction in coordination delays is operationally substantial and may be clinically important for time-sensitive pathways (e.g., cancer, neurology), though clinical outcome effects were not modeled
 - Reduces 3-week coordination to <1 week
-- Particularly impactful for time-sensitive conditions (cancer, neurology)
+- Particularly relevant for conditions where care timing affects prognosis
 
 ### Stage-Level Analysis
 
@@ -259,6 +259,26 @@ All robustness tests confirm the core finding:
 
 ---
 
+## Study Limitations
+
+While the simulation is grounded in published parameters and demonstrates robustness across multiple sensitivity analyses, several limitations should be acknowledged:
+
+1. **Simulated Variance:** The resulting standard deviations (0.07–0.17 days) are lower than real-world operational variance, which typically exhibits long-tailed distributions with outlier cases. Modeled delays represent expected durations calibrated to literature means; local variation may be substantially higher.
+
+2. **Capacity Constraints:** The simulation models administrative processing delays but does not incorporate downstream capacity constraints (e.g., limited specialist appointment slots, seasonal demand variation, provider availability).
+
+3. **Outcome Modeling:** This study quantifies delay reduction, not clinical outcomes. While reduced coordination time is operationally beneficial and may improve outcomes for time-sensitive conditions, morbidity and mortality effects were not modeled.
+
+4. **AI Performance Abstraction:** AI capabilities are modeled as near-instantaneous administrative task automation. Real-world implementations require integration with existing EHR systems, governance frameworks, safety validation, and ongoing performance monitoring.
+
+5. **Workflow Idealization:** The six-stage model represents a simplified linear pathway. Real ambulatory workflows involve parallel processes, handoff complexity, communication breakdowns, and patient-side delays not captured here.
+
+6. **Generalizability:** Parameters are derived from U.S. healthcare literature; applicability to other healthcare systems (different payer models, regulatory environments, EHR infrastructures) requires local validation.
+
+These limitations do not invalidate the findings but contextualize the simulation as a workflow informatics model for estimating operational impact rather than a predictive tool for clinical outcomes.
+
+---
+
 ## Publication-Ready Materials
 
 ### Figures (8 total, 300 DPI)
@@ -360,7 +380,8 @@ Sample Size:              N = 1,000 patients per scenario
 Primary Outcome:          70.5% reduction (14.91 days saved)
 Statistical Significance: t(1998) = 2565.49, p < 0.001
 Median Reduction:         14.93 days (95% CI: [14.89, 14.93])
-Clinical Impact:          40.9 patient-years saved per 1,000 episodes
+Operational Impact:       40.9 patient-years coordination time saved per 1,000 episodes
+Probability of Superiority: ≈1.00 (near-complete distributional separation)
 Robustness:               Consistent across 50 seeds, all sensitivity tests, 
                          and realistic deployment scenarios (p < 0.001)
 ```
@@ -378,9 +399,9 @@ Robustness:               Consistent across 50 seeds, all sensitivity tests,
 
 ### Clinical Relevance
 - Addresses real problem (care coordination delays)
-- Quantifies tangible impact (2+ weeks saved)
-- Exceeds transformative threshold (>14 days)
-- Applicable to time-sensitive conditions
+- Quantifies tangible operational impact (2+ weeks saved)
+- Operationally substantial reduction with potential clinical implications
+- Particularly relevant for time-sensitive conditions
 
 ### Transparency
 - Open code and data (GitHub repository)
@@ -389,17 +410,23 @@ Robustness:               Consistent across 50 seeds, all sensitivity tests,
 - Comprehensive sensitivity/robustness testing
 
 ### Novelty
-- First simulation of AI-driven care orchestration
-- Multi-stage coordination workflow
-- Quantified automation potential
-- Realistic deployment scenario modeling
+- First simulation of AI-driven care orchestration as workflow informatics framework
+- Multi-stage coordination workflow modeling
+- Quantified automation potential for clinical decision support operations
+- Realistic deployment scenario modeling with robustness validation
+
+### Informatics Contribution
+- Reproducible discrete event simulation framework for healthcare workflow analysis
+- Orchestration architecture applicable to administrative bottleneck modeling
+- Open-source implementation enabling adaptation to local parameters
+- Methodology transferable to other multi-stage clinical workflows
 
 ---
 
 ## Anticipated Reviewer Concerns & Responses
 
 ### Concern 1: "Cohen's d = 114 is unrealistic"
-**Response:** Acknowledged in manuscript. Large standardized effect reflects low simulation variance (SD < 0.2 days), not measurement error. Emphasize intuitive measures: 70.5% reduction, 14.91 days saved, 14.93 days median reduction. These are robust to variance assumptions.
+**Response:** Acknowledged in manuscript and limitations section. Large standardized effect reflects low simulation variance (SD < 0.2 days), driven by modeling expected durations rather than empirical distributions with outliers. Emphasize intuitive measures: 70.5% reduction, 14.91 days saved, 14.93 days median reduction. These are robust to variance assumptions and represent operational impact regardless of variance structure.
 
 ### Concern 2: "Single random seed (cherry-picking)"
 **Response:** Addressed via 50-seed robustness test. Mean reduction = 70.45% ± 0.02% (CV = 0.03%), demonstrating seed=42 is perfectly representative. Results are structural, not random.
@@ -413,6 +440,8 @@ Robustness:               Consistent across 50 seeds, all sensitivity tests,
 2. Sensitivity analysis shows results hold across ±50% parameter variations
 3. Stage-level analysis validates realism (human tasks unchanged)
 4. Realistic deployment scenario provides conservative estimate
+5. Limitations section explicitly acknowledges capacity constraints, workflow complexity, and outcome modeling not included
+6. Positioned as workflow informatics model for operational impact estimation, not clinical outcome prediction
 
 ### Concern 5: "Small sample size (N=1,000)"
 **Response:** Sample size sensitivity shows convergence at N ≥ 500. Results identical from N=1,000 to N=5,000, confirming adequacy.
@@ -444,12 +473,12 @@ Robustness:               Consistent across 50 seeds, all sensitivity tests,
 This research provides robust evidence that AI-driven orchestration can reduce ambulatory care coordination delays by approximately 70% (14.9 days). The finding is:
 
 - ✅ **Statistically significant** (p < 0.001 across all tests)
-- ✅ **Clinically meaningful** (>14 days = transformative)
+- ✅ **Operationally substantial** (2-week reduction with potential clinical implications)
 - ✅ **Methodologically rigorous** (literature-validated, extensively tested)
 - ✅ **Robust** (consistent across 80+ conditions tested)
-- ✅ **Realistic** (holds under real-world constraints)
+- ✅ **Realistic** (holds under real-world deployment constraints)
 
-The analytical work is complete. The manuscript is 85-90% ready for submission, requiring only final writing and formatting.
+As a workflow informatics contribution, this simulation framework quantifies automation potential for administrative bottlenecks in multi-stage clinical workflows. The analytical work is complete. The manuscript is 85-90% ready for submission, requiring only final writing and formatting.
 
 ---
 
