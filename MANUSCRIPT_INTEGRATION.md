@@ -86,93 +86,54 @@
 
 ---
 
-## TABLES (LATEX FORMAT)
+## TABLES (WORD/GOOGLE DOCS FORMAT)
 
 ### Table III: Simulation Parameter Validation and Literature Sources
 
-```latex
-\begin{table*}[t]
-\caption{Simulation Parameter Validation and Literature Sources}
-\label{tab:parameters}
-\centering
-\small
-\begin{tabular}{lllllp{4cm}}
-\toprule
-\textbf{Stage} & \textbf{Distribution} & \textbf{Parameters} & \textbf{Source} & \textbf{PMID/DOI} & \textbf{Rationale} \\
-\midrule
-Radiology Report & Uniform & min=3.2 hr, max=4.8 hr & Boland et al. 2008, JACR & DOI: 10.1016/j.jacr.2008.07.008 & Academic center benchmark (n=4,127 reports); range captures weekday/weekend variation \\
-\addlinespace
-PCP Acknowledgment & Exponential & $\lambda$=0.125 (mean=8 d) & Singh et al. 2009, Arch Intern Med & PMID: 19755978 & Safety-net hospital EHR data (n=1,889); exponential models unpredictable physician workload \\
-\addlinespace
-Referral Processing & Normal & $\mu$=10.5 d, $\sigma$=2.1 d & Chen et al. 2008, Health Affairs & PMID: 18780906 & eReferral system (n=10,334); normal validated by Q-Q plots \\
-\addlinespace
-Prior Authorization & Gamma & shape=2.5, scale=1.2 (mean=3 d) & AMA 2022; Casalino et al. 2009 & PMID: 19454528 & Gamma captures right-skew (instant approvals + delayed cases) \\
-\addlinespace
-Payer Review & Triangular & min=1 d, mode=2 d, max=5 d & CAQH 2023 Index & URL: caqh.org/index & Industry report (247M transactions); mode=2 reflects typical turnaround \\
-\addlinespace
-Specialist Scheduling & Weibull & shape=1.8, scale=28 (median≈21 d) & Prentice \& Pizer 2007, HSR & PMID: 17362211 & VA data (n=7,319 appts); Weibull models waiting list dynamics \\
-\addlinespace
-Patient Confirmation & Bernoulli + Uniform & p=0.15 no-show; reschedule: [0.5,1.5] d & Zhao et al. 2017, JMIR & PMID: 28450271 & Systematic review (32 studies); 15\% typical for specialty care \\
-\bottomrule
-\end{tabular}
-\end{table*}
-```
+**Table III. Simulation Parameter Validation and Literature Sources**
+
+| Stage | Distribution | Parameters | Source | PMID/DOI | Rationale |
+|-------|--------------|------------|--------|----------|-----------|
+| Radiology Report | Uniform | min=3.2 hr, max=4.8 hr | Boland et al. 2008, JACR | DOI: 10.1016/j.jacr.2008.07.008 | Academic center benchmark (n=4,127 reports); range captures weekday/weekend variation |
+| PCP Acknowledgment | Exponential | λ=0.125 (mean=8 d) | Singh et al. 2009, Arch Intern Med | PMID: 19755978 | Safety-net hospital EHR data (n=1,889); exponential models unpredictable physician workload |
+| Referral Processing | Normal | μ=10.5 d, σ=2.1 d | Chen et al. 2008, Health Affairs | PMID: 18780906 | eReferral system (n=10,334); normal validated by Q-Q plots |
+| Prior Authorization | Gamma | shape=2.5, scale=1.2 (mean=3 d) | AMA 2022; Casalino et al. 2009 | PMID: 19454528 | Gamma captures right-skew (instant approvals + delayed cases) |
+| Payer Review | Triangular | min=1 d, mode=2 d, max=5 d | CAQH 2023 Index | URL: caqh.org/index | Industry report (247M transactions); mode=2 reflects typical turnaround |
+| Specialist Scheduling | Weibull | shape=1.8, scale=28 (median≈21 d) | Prentice & Pizer 2007, HSR | PMID: 17362211 | VA data (n=7,319 appts); Weibull models waiting list dynamics |
+| Patient Confirmation | Bernoulli + Uniform | p=0.15 no-show; reschedule: [0.5,1.5] d | Zhao et al. 2017, JMIR | PMID: 28450271 | Systematic review (32 studies); 15% typical for specialty care |
 
 ---
 
 ### Table IV: Statistical Comparison of Baseline Systems
 
-```latex
-\begin{table*}[t]
-\caption{Pairwise Statistical Comparison of Baseline Care Coordination Systems}
-\label{tab:baseline_comparison}
-\centering
-\small
-\begin{tabular}{lccccc}
-\toprule
-\textbf{Comparison} & \textbf{Mean Diff (d)} & \textbf{Reduction (\%)} & \textbf{t-statistic} & \textbf{p-value} & \textbf{Cohen's d} \\
-\midrule
-Legacy vs. FIFO & 5.57 & 26.2\% & 54.22 & $<$0.001 & 2.47 (very large) \\
-FIFO vs. Rule-Based & 4.44 & 28.4\% & 50.30 & $<$0.001 & 2.26 (very large) \\
-Rule-Based vs. Partial & 2.14 & 19.1\% & 27.54 & $<$0.001 & 1.22 (large) \\
-Partial vs. Orchestrator & 2.89 & 31.9\% & 41.85 & $<$0.001 & 1.85 (very large) \\
-\midrule
-\textbf{Total: Legacy vs. Orchestrator} & \textbf{15.04} & \textbf{70.9\%} & \textbf{--} & \textbf{$<$0.001} & \textbf{7.92 (very large)} \\
-\bottomrule
-\multicolumn{6}{l}{\footnotesize All comparisons significant after Bonferroni correction ($\alpha$=0.0125 per test).} \\
-\multicolumn{6}{l}{\footnotesize Sample size: n=1,000 patients per system. Paired t-tests used for consecutive comparisons.} \\
-\end{tabular}
-\end{table*}
-```
+**Table IV. Pairwise Statistical Comparison of Baseline Care Coordination Systems**
+
+| Comparison | Mean Diff (days) | Reduction (%) | t-statistic | p-value | Cohen's d |
+|------------|------------------|---------------|-------------|---------|-----------|
+| Legacy vs. FIFO | 5.57 | 26.2% | 54.22 | <0.001 | 2.47 (very large) |
+| FIFO vs. Rule-Based | 4.44 | 28.4% | 50.30 | <0.001 | 2.26 (very large) |
+| Rule-Based vs. Partial | 2.14 | 19.1% | 27.54 | <0.001 | 1.22 (large) |
+| Partial vs. Orchestrator | 2.89 | 31.9% | 41.85 | <0.001 | 1.85 (very large) |
+| **Total: Legacy vs. Orchestrator** | **15.04** | **70.9%** | **--** | **<0.001** | **7.92 (very large)** |
+
+*Note: All comparisons significant after Bonferroni correction (α=0.0125 per test). Sample size: n=1,000 patients per system. Paired t-tests used for consecutive comparisons.*
 
 ---
 
 ### Table V: Incremental Improvement Decomposition
 
-```latex
-\begin{table}[t]
-\caption{Incremental Improvement Analysis: Contribution of Each System Component}
-\label{tab:incremental}
-\centering
-\small
-\begin{tabular}{lccc}
-\toprule
-\textbf{System Transition} & \textbf{Days Saved} & \textbf{Incremental} & \textbf{Cumulative} \\
-& & \textbf{Reduction} & \textbf{Reduction} \\
-\midrule
-Legacy Baseline & -- & -- & 0\% \\
-$\downarrow$ \textit{Process organization (FIFO)} & 5.57 & 26.2\% & 26.2\% \\
-$\downarrow$ \textit{Rule-based automation} & 4.44 & 28.4\% & 47.1\% \\
-$\downarrow$ \textit{Selective AI features} & 2.14 & 19.1\% & 57.2\% \\
-$\downarrow$ \textit{Comprehensive AI orchestration} & 2.89 & 31.9\% & \textbf{70.9\%} \\
-\midrule
-\textbf{AI Orchestrator Final} & \textbf{15.04} & \textbf{--} & \textbf{70.9\%} \\
-\bottomrule
-\multicolumn{4}{l}{\footnotesize Incremental reduction calculated relative to preceding system.} \\
-\multicolumn{4}{l}{\footnotesize Demonstrates AI contributes $\approx$one-third of total improvement.} \\
-\end{tabular}
-\end{table}
-```
+**Table V. Incremental Improvement Analysis: Contribution of Each System Component**
+
+| System Transition | Days Saved | Incremental Reduction | Cumulative Reduction |
+|-------------------|------------|----------------------|---------------------|
+| Legacy Baseline | -- | -- | 0% |
+| ↓ *Process organization (FIFO)* | 5.57 | 26.2% | 26.2% |
+| ↓ *Rule-based automation* | 4.44 | 28.4% | 47.1% |
+| ↓ *Selective AI features* | 2.14 | 19.1% | 57.2% |
+| ↓ *Comprehensive AI orchestration* | 2.89 | 31.9% | **70.9%** |
+| **AI Orchestrator Final** | **15.04** | **--** | **70.9%** |
+
+*Note: Incremental reduction calculated relative to preceding system. Demonstrates AI contributes approximately one-third of total improvement.*
 
 ---
 
@@ -251,3 +212,91 @@ $\downarrow$ \textit{Comprehensive AI orchestration} & 2.89 & 31.9\% & \textbf{7
 **Document Status:** READY FOR MANUSCRIPT INTEGRATION  
 **Last Updated:** February 5, 2026  
 **Estimated Integration Time:** 2-3 hours
+
+---
+
+## APPENDIX: LATEX FORMAT (OPTIONAL)
+
+**Use this section if submitting to LaTeX-based journals (IEEE, Springer, etc.)**
+
+### Table III: LaTeX Format
+
+```latex
+\begin{table*}[t]
+\caption{Simulation Parameter Validation and Literature Sources}
+\label{tab:parameters}
+\centering
+\small
+\begin{tabular}{lllllp{4cm}}
+\toprule
+\textbf{Stage} & \textbf{Distribution} & \textbf{Parameters} & \textbf{Source} & \textbf{PMID/DOI} & \textbf{Rationale} \\
+\midrule
+Radiology Report & Uniform & min=3.2 hr, max=4.8 hr & Boland et al. 2008, JACR & DOI: 10.1016/j.jacr.2008.07.008 & Academic center benchmark (n=4,127 reports); range captures weekday/weekend variation \\
+\addlinespace
+PCP Acknowledgment & Exponential & $\lambda$=0.125 (mean=8 d) & Singh et al. 2009, Arch Intern Med & PMID: 19755978 & Safety-net hospital EHR data (n=1,889); exponential models unpredictable physician workload \\
+\addlinespace
+Referral Processing & Normal & $\mu$=10.5 d, $\sigma$=2.1 d & Chen et al. 2008, Health Affairs & PMID: 18780906 & eReferral system (n=10,334); normal validated by Q-Q plots \\
+\addlinespace
+Prior Authorization & Gamma & shape=2.5, scale=1.2 (mean=3 d) & AMA 2022; Casalino et al. 2009 & PMID: 19454528 & Gamma captures right-skew (instant approvals + delayed cases) \\
+\addlinespace
+Payer Review & Triangular & min=1 d, mode=2 d, max=5 d & CAQH 2023 Index & URL: caqh.org/index & Industry report (247M transactions); mode=2 reflects typical turnaround \\
+\addlinespace
+Specialist Scheduling & Weibull & shape=1.8, scale=28 (median≈21 d) & Prentice \& Pizer 2007, HSR & PMID: 17362211 & VA data (n=7,319 appts); Weibull models waiting list dynamics \\
+\addlinespace
+Patient Confirmation & Bernoulli + Uniform & p=0.15 no-show; reschedule: [0.5,1.5] d & Zhao et al. 2017, JMIR & PMID: 28450271 & Systematic review (32 studies); 15\% typical for specialty care \\
+\bottomrule
+\end{tabular}
+\end{table*}
+```
+
+### Table IV: LaTeX Format
+
+```latex
+\begin{table*}[t]
+\caption{Pairwise Statistical Comparison of Baseline Care Coordination Systems}
+\label{tab:baseline_comparison}
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Comparison} & \textbf{Mean Diff (d)} & \textbf{Reduction (\%)} & \textbf{t-statistic} & \textbf{p-value} & \textbf{Cohen's d} \\
+\midrule
+Legacy vs. FIFO & 5.57 & 26.2\% & 54.22 & $<$0.001 & 2.47 (very large) \\
+FIFO vs. Rule-Based & 4.44 & 28.4\% & 50.30 & $<$0.001 & 2.26 (very large) \\
+Rule-Based vs. Partial & 2.14 & 19.1\% & 27.54 & $<$0.001 & 1.22 (large) \\
+Partial vs. Orchestrator & 2.89 & 31.9\% & 41.85 & $<$0.001 & 1.85 (very large) \\
+\midrule
+\textbf{Total: Legacy vs. Orchestrator} & \textbf{15.04} & \textbf{70.9\%} & \textbf{--} & \textbf{$<$0.001} & \textbf{7.92 (very large)} \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize All comparisons significant after Bonferroni correction ($\alpha$=0.0125 per test).} \\
+\multicolumn{6}{l}{\footnotesize Sample size: n=1,000 patients per system. Paired t-tests used for consecutive comparisons.} \\
+\end{tabular}
+\end{table*}
+```
+
+### Table V: LaTeX Format
+
+```latex
+\begin{table}[t]
+\caption{Incremental Improvement Analysis: Contribution of Each System Component}
+\label{tab:incremental}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{System Transition} & \textbf{Days Saved} & \textbf{Incremental} & \textbf{Cumulative} \\
+& & \textbf{Reduction} & \textbf{Reduction} \\
+\midrule
+Legacy Baseline & -- & -- & 0\% \\
+$\downarrow$ \textit{Process organization (FIFO)} & 5.57 & 26.2\% & 26.2\% \\
+$\downarrow$ \textit{Rule-based automation} & 4.44 & 28.4\% & 47.1\% \\
+$\downarrow$ \textit{Selective AI features} & 2.14 & 19.1\% & 57.2\% \\
+$\downarrow$ \textit{Comprehensive AI orchestration} & 2.89 & 31.9\% & \textbf{70.9\%} \\
+\midrule
+\textbf{AI Orchestrator Final} & \textbf{15.04} & \textbf{--} & \textbf{70.9\%} \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize Incremental reduction calculated relative to preceding system.} \\
+\multicolumn{4}{l}{\footnotesize Demonstrates AI contributes $\approx$one-third of total improvement.} \\
+\end{tabular}
+\end{table}
+```
